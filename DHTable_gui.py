@@ -34,11 +34,11 @@ def save_data():
         # 'plot_dh' is method which takes DH Parameters as input and convert it to 3D coordinates, that is x, y, and z points and plot it in a 3D graph
         plot_dh(DH_Parameters)
 
-# # Defing 'add_row' to add a new row for DH Parameters everytime user presses '+' button
-# def add_row():
-#
-#     # Delete the button already present beside every row, that is '+' and 'save' buttons
-#     add.destroy()
-#     save.destroy()
-#
-#     no_of_rows += 1
+# Defing 'add_row' to add a new row for DH Parameters everytime user presses '+' button
+def add_row():
+
+    # Delete the button already present beside every row, that is '+' and 'save' buttons
+    add.destroy()
+    save.destroy()
+
+    no_of_rows += 1
