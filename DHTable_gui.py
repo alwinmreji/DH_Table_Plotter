@@ -2,7 +2,7 @@
 # only using python
 
 # tkinter module is the standard Python interface to the GUI toolkit
-import tkinter as tkr
+import tkinter as tkin
 
 # Declaring global variables
 get_data = []
@@ -41,4 +41,32 @@ def add_row():
     add.destroy()
     save.destroy()
 
+    # keep count number of rows
     no_of_rows += 1
+
+    # serail number is auto generated using the following method
+    tkin.Label(screen, text = str(no_of_rows)+".", width = width_of_slot, font = font_data).grid(row = no_of_rows, coloumn = 0)
+
+    # 'mapping' is a variable used to map the individual slot and then it is appended to 'get_data' list
+    mapping = []
+
+    # for loop for four coloumns of every row
+    for individual_slot in range(0,4):
+
+        # method to create slots to enter variables
+        mapping.append(tk.Entry(screen, width = width_of_slot, font = font_data))
+
+        # setting default values as '0'
+        mapping[individual_slot].insert(0,"0")
+
+        # positoning of the slot
+        mapping[individual_slot].grid(row = no_of_rows, coloumn = 1+individual_slot)
+    get_data.append(mapping)
+
+    # defining the deleted buttons in a new positon
+    global add
+    add = tkin.Button(screen, text = "+",font = fnt,bg="lightblue", width = 3,command = add_row)
+    add.grid(row = no_of_rows, coloumns = 5)
+    global save
+    save = tk.Button(screen, text = "Plot",font = fnt,bg="lightgreen", width = 3,command = save_data)
+    save.grid(row = i, column = 6)
