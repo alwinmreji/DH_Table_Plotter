@@ -1,5 +1,4 @@
-# A graphical user interface get data for plotting a Denavit-Hartenberg parameters and plot it in 3D graph
-# only using python
+# A graphical user interface to get data of a Denavit-Hartenberg parameters using python
 
 # tkinter module is the standard Python interface to the GUI toolkit
 import tkinter as tkin
@@ -7,6 +6,7 @@ import tkinter as tkin
 # Declaring global variables
 get_data = []
 no_of_rows = 0
+
 
 # Defining a method for invalid inputs from user
 def error_handel(window):
@@ -16,6 +16,8 @@ def error_handel(window):
 
     # the main window is brought back
     screen.deiconify()
+
+
 
 # Defing 'save_data' a method for saving inserted data from table
 def save_data():
@@ -43,7 +45,7 @@ def save_data():
                 # another GUI window is defined 'error'
                 error = tkin.Tk()
                 error.title("ERROR")
-                error.geometry("+0+10")
+                error.geometry("+100+100")
 
                 # hiding the main window until the ok Button is pressed in exception window
                 screen.withdraw()
@@ -61,8 +63,10 @@ def save_data():
         DH_Parameters.append(parameter)
         # screen.destroy()
 
-        # 'plot_dh' is method which takes DH Parameters as input and convert it to 3D coordinates, that is x, y, and z points and plot it in a 3D graph
-        # plot_dh(DH_Parameters)
+    # 'plot_dh' is method which takes DH Parameters as input and convert it to 3D coordinates, that is x, y, and z points and plot it in a 3D graph
+    print(DH_Parameters)
+    # plot_dh(DH_Parameters)
+
 
 # Defining 'add_row' to add a new row for DH Parameters everytime user presses '+' button
 def add_row():
@@ -101,6 +105,7 @@ def add_row():
     global save
     save = tkin.Button(screen, text = "Plot",font = font_data,bg="lightgreen", width = 3,command = save_data)
     save.grid(row = no_of_rows, column = 6)
+
 
 # main function
 if __name__ == '__main__':
