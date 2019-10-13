@@ -42,21 +42,21 @@ def save_data():
 
                 # another GUI window is defined 'error'
                 error = tkin.Tk()
-                erroe.title("ERROR")
+                error.title("ERROR")
                 error.geometry("+0+10")
 
                 # hiding the main window until the ok Button is pressed in exception window
                 screen.withdraw()
 
                 # displaying the error message
-                tkin.Label(error, text = "Enter valid parameter value", font = font_data).grid(row = 0, column =0)
+                tkin.Label(error, text = "Enter a valid parameter value", font = font_data).grid(row = 0, column =0)
                 ok_button = tkin.Button(error, text = "ok",font = font_data,bg="red", width = 3,command = error_handel)
 
                 # passing the exception window variable as val
                 ok_button ['command'] = lambda val = error:error_handel(val)
                 ok_button.grid(row = 1, column = 0)
                 error.mainloop()
-                
+
         # now 'parameter' contains all values of a particular parameter entered in the table form GUI
         DH_Parameters.append(parameter)
         # screen.destroy()
