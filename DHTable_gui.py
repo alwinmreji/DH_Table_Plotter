@@ -129,7 +129,7 @@ if __name__ == '__main__':
     tkin.Label(screen,text = "X_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 3)
     tkin.Label(screen,text = "Theta",width=width_of_slot,font = font_data).grid(row = 0, column = 4)
 
-    # defining both buttons for the first timie
+    # defining both buttons for the first time
     add = tkin.Button(screen, text = "+", font = font_data, width = 3, bg="lightblue", command = add_row)
     add.grid(row = no_of_rows, column = 5)
     save = tkin.Button(screen, text = "Plot",font = font_data, bg="lightgreen", width = 3, command = save_data)
