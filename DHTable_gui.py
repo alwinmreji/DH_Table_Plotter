@@ -2,14 +2,15 @@
 
 # tkinter module is the standard Python interface to the GUI toolkit
 import tkinter as tkin
-
+import DHTable_plot as plt
 # Declaring global variables
 get_data = []
 no_of_rows = 0
-
+width_of_slot = 8
+font_data = 12
 
 # Defining a method for invalid inputs from user
-def error_handel(window):
+def error_handel(window,screen):
 
     # once ok button is pressed in error window it is destroyed
     window.destroy()
@@ -19,7 +20,7 @@ def error_handel(window):
 
 
 # Defing 'save_data' a method for saving inserted data from table
-def save_data():
+def save_data(screen):
 
     # variables 'DH_Parameters' will contain the values of angel about z, displacement about z, angel about x and displacement along x.
     # in four lists.
@@ -51,10 +52,10 @@ def save_data():
 
                 # displaying the error message
                 tkin.Label(error, text = "Enter a valid parameter value", font = font_data).grid(row = 0, column =0)
-                ok_button = tkin.Button(error, text = "ok",font = font_data,bg="red", width = 3,command = error_handel)
+                ok_button = tkin.Button(error, text = "ok",font = font_data,bg="red", width = 3)
 
                 # passing the exception window variable as val
-                ok_button ['command'] = lambda val = error:error_handel(val)
+                ok_button ['command'] = lambda val = error:error_handel(val,screen)
                 ok_button.grid(row = 1, column = 0)
                 error.mainloop()
 
@@ -63,12 +64,12 @@ def save_data():
         # screen.destroy()
 
     # 'plot_dh' is method which takes DH Parameters as input and convert it to 3D coordinates, that is x, y, and z points and plot it in a 3D graph
-    print(DH_Parameters)
-    # plot_dh(DH_Parameters)
+    # print(DH_Parameters)
+    plt.PlotDH(DH_Parameters)
 
 
 # Defining 'add_row' to add a new row for DH Parameters everytime user presses '+' button
-def add_row():
+def add_row(add,save,screen):
     global no_of_rows
 
     # Delete the button already present beside every row, that is '+' and 'save' buttons
@@ -98,18 +99,16 @@ def add_row():
     get_data.append(mapping)
 
     # defining the deleted buttons in a new positon
-    global add
-    add = tkin.Button(screen, text = "+",font = font_data,bg="lightblue", width = 3,command = add_row)
-    add.grid(row = no_of_rows, column = 5)
-    global save
-    save = tkin.Button(screen, text = "Plot",font = font_data,bg="lightgreen", width = 3,command = save_data)
+    save = tkin.Button(screen, text = "Plot",font = font_data,bg="lightgreen", width = 3)
+    save['command'] = lambda scr = screen:save_data(scr)
     save.grid(row = no_of_rows, column = 6)
+    add = tkin.Button(screen, text = "+",font = font_data,bg="lightblue", width = 3,command = add_row)
+    add['command'] = lambda but1 = add, but2 = save :add_row(but1,but2,screen)
+    add.grid(row = no_of_rows, column = 5)
 
 
 # main function
-def DH_Table_Plotter_main():
-    width_of_slot = 8
-    font_data = 12
+def DH_Plotter_main():
     # defining a master variable for tkinter gui methode
     screen = tkin.Tk()
 
@@ -128,10 +127,11 @@ def DH_Table_Plotter_main():
     tkin.Label(screen,text = "Alpha",width=width_of_slot,font = font_data).grid(row = 0, column = 4)
 
     # defining both buttons for the first time
-    add = tkin.Button(screen, text = "+", font = font_data, width = 3, bg="lightblue", command = add_row)
-    add.grid(row = no_of_rows, column = 5)
     save = tkin.Button(screen, text = "Plot",font = font_data, bg="lightgreen", width = 3, command = save_data)
     save.grid(row = no_of_rows, column = 6)
+    add = tkin.Button(screen, text = "+", font = font_data, width = 3, bg="lightblue")
+    add['command'] = lambda but1 = add, but2 = save :add_row(but1,but2,screen)
+    add.grid(row = no_of_rows, column = 5)
 
     # calling mainloop
     screen.mainloop()
