@@ -18,7 +18,6 @@ def error_handel(window):
     screen.deiconify()
 
 
-
 # Defing 'save_data' a method for saving inserted data from table
 def save_data():
 
@@ -108,8 +107,7 @@ def add_row():
 
 
 # main function
-if __name__ == '__main__':
-
+def DH_Table_Plotter_main():
     width_of_slot = 8
     font_data = 12
     # defining a master variable for tkinter gui methode
@@ -124,10 +122,10 @@ if __name__ == '__main__':
     # initial lables of the GUI
     tkin.Label(screen,text = "Enter The values ")
     tkin.Label(screen,text = "Link No.",width=width_of_slot,font = font_data).grid(row = 0, column = 0)
-    tkin.Label(screen,text = "Alpha",width=width_of_slot,font = font_data).grid(row = 0, column = 1)
-    tkin.Label(screen,text = "Z_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 2)
+    tkin.Label(screen,text = "Z_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 1)
+    tkin.Label(screen,text = "Theta",width=width_of_slot,font = font_data).grid(row = 0, column = 2)
     tkin.Label(screen,text = "X_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 3)
-    tkin.Label(screen,text = "Theta",width=width_of_slot,font = font_data).grid(row = 0, column = 4)
+    tkin.Label(screen,text = "Alpha",width=width_of_slot,font = font_data).grid(row = 0, column = 4)
 
     # defining both buttons for the first time
     add = tkin.Button(screen, text = "+", font = font_data, width = 3, bg="lightblue", command = add_row)
