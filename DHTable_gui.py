@@ -64,7 +64,7 @@ def save_data(screen):
         # screen.destroy()
 
     # 'plot_dh' is method which takes DH Parameters as input and convert it to 3D coordinates, that is x, y, and z points and plot it in a 3D graph
-    # print(DH_Parameters)
+    print(DH_Parameters)
     plt.PlotDH(DH_Parameters)
 
 
@@ -121,8 +121,8 @@ def DH_Plotter_main():
     # initial lables of the GUI
     tkin.Label(screen,text = "Enter The values ")
     tkin.Label(screen,text = "Link No.",width=width_of_slot,font = font_data).grid(row = 0, column = 0)
-    tkin.Label(screen,text = "Z_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 1)
-    tkin.Label(screen,text = "Theta",width=width_of_slot,font = font_data).grid(row = 0, column = 2)
+    tkin.Label(screen,text = "Theta",width=width_of_slot,font = font_data).grid(row = 0, column = 1)
+    tkin.Label(screen,text = "Z_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 2)
     tkin.Label(screen,text = "X_dis",width=width_of_slot,font = font_data).grid(row = 0, column = 3)
     tkin.Label(screen,text = "Alpha",width=width_of_slot,font = font_data).grid(row = 0, column = 4)
 

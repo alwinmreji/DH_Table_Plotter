@@ -67,8 +67,8 @@ def PlotDH(DH_Parameter):
     # --- Robotic Arm construction ---
     for val in DH_Parameter:
         joint = HomogeneousMatrix()
-        joint.set_d(val[0])
-        joint.set_theta(val[1])
+        joint.set_theta(val[0])
+        joint.set_d(val[1])
         joint.set_a(val[2])
         joint.set_alpha(val[3])
         joint.set_parent(List_of_Joints[-1].get())
