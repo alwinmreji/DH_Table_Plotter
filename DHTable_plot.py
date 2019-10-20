@@ -42,7 +42,10 @@ class HomogeneousMatrix(object):
 
     def set_a(self, a):
         # Sets the 'a' parameter of the DH convention
-        self.matrix[0, 3] = a
+        v = np.identity(4)
+        v[0,3] = a
+        self.matrix = np.dot(self.matrix, v)
+        # self.matrix[0, 3] = a
 
     def set_alpha(self, alpha):
         # Sets the 'alpha' parameter of the DH convention
