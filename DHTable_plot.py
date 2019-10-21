@@ -5,7 +5,7 @@ import numpy as np
 from math import radians, sin, cos
 import numpy as np
 
-class HomogeneousMatrix(object):
+class cognateMatrix(object):
     # Creates a homogeneous matrix.
     def __init__(self):
         self.matrix = np.identity(4)
@@ -64,12 +64,12 @@ class HomogeneousMatrix(object):
 
 # Function to plot the readed DH_Parameter
 def PlotDH(DH_Parameter):
-    base = HomogeneousMatrix()
+    base = cognateMatrix()
     List_of_Joints = []
     List_of_Joints.append(base)
     # --- Robotic Arm construction ---
     for val in DH_Parameter:
-        joint = HomogeneousMatrix()
+        joint = cognateMatrix()
         joint.set_theta(val[0])
         joint.set_d(val[1])
         joint.set_a(val[2])
