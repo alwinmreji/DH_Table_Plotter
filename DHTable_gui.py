@@ -64,7 +64,10 @@ def save_data(screen):
         # screen.destroy()
 
     # 'plot_dh' is method which takes DH Parameters as input and convert it to 3D coordinates, that is x, y, and z points and plot it in a 3D graph
-    # [[90.0, 10.0, 0.0, 0.0], [0.0, 0.0, 10.0, 90.0], [0.0, 10.0, 0.0, 0.0], [90.0, 0.0, 10.0, 0.0]]
+    # DH = [[90.0, 10.0, 0.0, 0.0], [0.0, 0.0, 10.0, 90.0], [0.0, 10.0, 0.0, 0.0], [90.0, 0.0, 10.0, 0.0]]
+    # print(DH)
+    # plt.PlotDH(DH)
+
     print(DH_Parameters)
     plt.PlotDH(DH_Parameters)
 

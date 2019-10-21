@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 import numpy as np
 from math import radians, sin, cos
-import numpy as np
 
 class cognateMatrix(object):
     # Creates a homogeneous matrix.
@@ -45,19 +44,10 @@ class cognateMatrix(object):
         v = np.identity(4)
         v[0,3] = a
         self.matrix = np.dot(self.matrix, v)
-        # self.matrix[0, 3] = a
-
-    #def set_alpha(self, alpha):
-        # Sets the 'alpha' parameter of the DH convention
-        #self.roll(alpha)
 
     def set_d(self, d):
         # Sets the 'd' parameter of the DH convention
         self.matrix[2, 3] = d
-
-    #def set_theta(self, theta):
-        # Sets the 'theta' parameter of the DH convention
-        #self.yaw(theta)
 
     def set_parent(self, parent):
         self.matrix = np.dot(parent, self.matrix)
@@ -85,6 +75,10 @@ def PlotDH(DH_Parameter):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.plot(X,Y,Z)
+    for x,y,z in zip(X,Y,Z):
+        k = ("("+str(int(x))+","+str(int(y))+","+str(int(z))+")")
+        ax.scatter(x,y,z,marker = "$"+k+"$", s = 1000, color ='red')
+    # ax.scatter(X,Y,Z, marker = ".", s =100, color = 'green')
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     ax.set_zlabel('z')
