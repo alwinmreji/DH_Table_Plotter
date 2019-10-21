@@ -47,17 +47,17 @@ class cognateMatrix(object):
         self.matrix = np.dot(self.matrix, v)
         # self.matrix[0, 3] = a
 
-    def set_alpha(self, alpha):
+    #def set_alpha(self, alpha):
         # Sets the 'alpha' parameter of the DH convention
-        self.roll(alpha)
+        #self.roll(alpha)
 
     def set_d(self, d):
         # Sets the 'd' parameter of the DH convention
         self.matrix[2, 3] = d
 
-    def set_theta(self, theta):
+    #def set_theta(self, theta):
         # Sets the 'theta' parameter of the DH convention
-        self.yaw(theta)
+        #self.yaw(theta)
 
     def set_parent(self, parent):
         self.matrix = np.dot(parent, self.matrix)
@@ -70,10 +70,10 @@ def PlotDH(DH_Parameter):
     # --- Robotic Arm construction ---
     for val in DH_Parameter:
         joint = cognateMatrix()
-        joint.set_theta(val[0])
+        joint.yaw(val[0])
         joint.set_d(val[1])
         joint.set_a(val[2])
-        joint.set_alpha(val[3])
+        joint.roll(val[3])
         joint.set_parent(List_of_Joints[-1].get())
         List_of_Joints.append(joint)
     X,Y,Z = [],[],[]
