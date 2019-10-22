@@ -76,7 +76,8 @@ def PlotDH(DH_Parameter):
     ax = fig.add_subplot(111, projection='3d')
     ax.plot(X,Y,Z)
     for x,y,z in zip(X,Y,Z):
-        k = ("("+str(int(x))+","+str(int(y))+","+str(int(z))+")")
+        print("(",round(x,1),round(y,1),round(z,1),")")
+        k = ("("+str(int(round(x,1)))+","+str(int(round(y,1)))+","+str(int(round(z,1)))+")")
         ax.scatter(x,y,z,marker = "$"+k+"$", s = 1000, color ='red')
     # ax.scatter(X,Y,Z, marker = ".", s =100, color = 'green')
     ax.set_xlabel('x')
