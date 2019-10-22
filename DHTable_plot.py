@@ -79,7 +79,7 @@ def PlotDH(DH_Parameter):
         print("(",round(x,1),round(y,1),round(z,1),")")
         k = ("("+str(int(round(x,1)))+","+str(int(round(y,1)))+","+str(int(round(z,1)))+")")
         ax.scatter(x,y,z,marker = "$"+k+"$", s = 1000, color ='red')
-    # ax.scatter(X,Y,Z, marker = ".", s =100, color = 'green')
+    ax.scatter(X[-1],Y[-1],Z[-1], marker = "1", s =100, color = 'blue')
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     ax.set_zlabel('z')
