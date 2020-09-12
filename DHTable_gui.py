@@ -68,7 +68,7 @@ def save_data(screen):
     # print(DH)
     # plt.PlotDH(DH)
 
-    print(DH_Parameters)
+    # print(DH_Parameters)
     plt.PlotDH(DH_Parameters)
 
 
