@@ -113,7 +113,7 @@ def DH_Table_Plotter_main():
     # defining a master variable for tkinter gui methode
     screen = tkin.Tk()
 
-    # positon of the window of GUI
+    # positon of the window
     screen.geometry("+0+10")
 
     # title of the window
